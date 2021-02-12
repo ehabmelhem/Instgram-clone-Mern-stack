@@ -12,6 +12,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 function Post({ avata, name }) {
   const [save, setSave] = useState(false);
   const [like, setLike] = useState(false);
+  const [showLike, setShowLike] = useState(false);
 
   const [moving, setMoving] = useState(false);
   const [confirming, setConfirming] = useState(false);
@@ -19,6 +20,7 @@ function Post({ avata, name }) {
 
   const confirm = (event) => {
     event.preventDefault();
+
     if (moving) {
       setMoving(false);
       return;
@@ -27,12 +29,31 @@ function Post({ avata, name }) {
       clearTimeout(timer);
       //   what the handel dose is here
       setLike(true);
-      setTimer(setTimeout(() => setConfirming(false), 200));
+      setShowLike(true);
+      setTimer(
+        setTimeout(
+          () => () => {
+            setConfirming(false);
+            setShowLike(false);
+          },
+          200
+        )
+      );
+      setTimeout(() => {
+        setShowLike(false);
+      }, 1500);
     } else {
       setConfirming(true);
-      console.log("hii");
 
-      setTimer(setTimeout(() => setConfirming(false), 200));
+      setTimer(
+        setTimeout(
+          () => () => {
+            setConfirming(false);
+            setShowLike(false);
+          },
+          200
+        )
+      );
     }
   };
   return (
@@ -52,6 +73,12 @@ function Post({ avata, name }) {
           src="https://instagram.fsdv2-1.fna.fbcdn.net/v/t51.2885-15/fr/e15/p1080x1080/149034753_431703654757825_1874527229930953841_n.jpg?_nc_ht=instagram.fsdv2-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=ioDx9l8gGKQAX_PIKLk&tp=1&oh=217719129193fe3b50f496f1b6afac81&oe=604F7157"
           alt=""
         />
+        {showLike ? (
+          <FavoriteIcon
+            fontSize="large"
+            className={showLike ? "withlike" : "noneshowlike"}
+          />
+        ) : null}
         <div className="post_content_icons">
           <div className="all_post_icons">
             <IconButton

@@ -28,3 +28,13 @@
 .hasLike {
   color: red !important;
 }
+.withlike {
+  position: absolute;
+  left: 200px;
+  bottom: 500px;
+  color: rgba(248, 234, 234, 0.8) !important;
+  z-index: 999 !important;
+}
+.noneshowlike {
+  display: none;
+}
