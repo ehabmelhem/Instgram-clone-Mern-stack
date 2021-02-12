@@ -1,0 +1,30 @@
+.post__header {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.post {
+  background-color: white;
+}
+.post__name {
+  flex: 1;
+  margin-left: 10px;
+}
+.post_content {
+  margin-top: 10px;
+}
+.post_content > img {
+  width: 375px;
+  object-fit: contain;
+}
+.post_content_icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sendIcon {
+  flex: 1;
+}
+.hasLike {
+  color: red !important;
+}
