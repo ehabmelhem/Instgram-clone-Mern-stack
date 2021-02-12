@@ -38,3 +38,12 @@
 .noneshowlike {
   display: none;
 }
+.post_personalData {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 350px;
+}
+.post_personalData > h6 {
+  margin-left: 10px;
+}

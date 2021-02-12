@@ -110,6 +110,10 @@ function Post({ avata, name }) {
             </IconButton>
           </div>
         </div>
+        <div className="post_personalData">
+          <h5>Liverpoolfc</h5>
+          <h6>this is caption</h6>
+        </div>
       </div>
     </div>
   );
